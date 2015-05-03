@@ -1,0 +1,12 @@
+C:\Users\duan\Desktop\GitHub\Topic\DFHE.Topic\DFHE.Topic.Utils\bin\Debug\DFHE.Topic.Utils.dll
+C:\Users\duan\Desktop\GitHub\Topic\DFHE.Topic\DFHE.Topic.Utils\bin\Debug\DFHE.Topic.Utils.pdb
+C:\Users\duan\Desktop\GitHub\Topic\DFHE.Topic\DFHE.Topic.Utils\obj\Debug\DFHE.Topic.Utils.dll
+C:\Users\duan\Desktop\GitHub\Topic\DFHE.Topic\DFHE.Topic.Utils\obj\Debug\DFHE.Topic.Utils.pdb
+C:\Users\duan\Desktop\GitHub\Topic\DFHE.Topic\DFHE.Topic.Utils\bin\Debug\NVelocity.dll
+C:\Users\duan\Desktop\GitHub\Topic\DFHE.Topic\DFHE.Topic.Utils\bin\Debug\zxing.dll
+C:\Users\duan\Desktop\GitHub\Topic\DFHE.Topic\DFHE.Topic.Utils\bin\Debug\zxing.presentation.dll
+C:\Users\duan\Desktop\GitHub\Topic\DFHE.Topic\DFHE.Topic.Utils\bin\Debug\NVelocity.xml
+C:\Users\duan\Desktop\GitHub\Topic\DFHE.Topic\DFHE.Topic.Utils\bin\Debug\zxing.pdb
+C:\Users\duan\Desktop\GitHub\Topic\DFHE.Topic\DFHE.Topic.Utils\bin\Debug\zxing.xml
+C:\Users\duan\Desktop\GitHub\Topic\DFHE.Topic\DFHE.Topic.Utils\bin\Debug\zxing.presentation.pdb
+C:\Users\duan\Desktop\GitHub\Topic\DFHE.Topic\DFHE.Topic.Utils\bin\Debug\zxing.presentation.xml
