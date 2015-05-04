@@ -2432,6 +2432,7 @@
     <Content Include="assets\javascripts\angularStrap\modules\typeahead.tpl.js" />
     <Content Include="assets\javascripts\angularStrap\modules\typeahead.tpl.min.js" />
     <Content Include="assets\javascripts\jquery.transit.js" />
+    <Content Include="assets\stylesheets\angular-strap-libraries.min.css" />
     <Content Include="assets\stylesheets\preview.css" />
     <Content Include="css\bootstrap.scss" />
     <Content Include="css\libs\animate.scss" />
@@ -3029,8 +3030,11 @@
     <Content Include="html\assets\fonts\font-awesome\fontawesome-webfont.ttf" />
     <Content Include="html\assets\fonts\font-awesome\fontawesome-webfont.woff" />
     <Content Include="html\assets\fonts\font-awesome\FontAwesome.otf" />
+    <Content Include="js\controllers\tmpl.create.js" />
+    <Content Include="js\controllers\tmpl.list.js" />
     <Content Include="js\controllers\topic.create.js" />
     <Content Include="js\controllers\topic.list.js" />
+    <Content Include="js\controllers\user.list.js" />
     <Content Include="js\libs\select2-3.4.5\select2_locale_en.js.template" />
     <Content Include="assets\javascripts\angularStrap\modules\affix.min.js.map" />
     <Content Include="assets\javascripts\angularStrap\modules\alert.min.js.map" />
@@ -3924,8 +3928,11 @@
     <Content Include="templates\main.tpl.html" />
     <Content Include="templates\preview.html" />
     <Content Include="templates\signin.tpl.html" />
+    <Content Include="templates\tmpl.create.tpl.html" />
+    <Content Include="templates\tmpl.list.tpl.html" />
     <Content Include="templates\topic.create.tpl.html" />
     <Content Include="templates\topic.list.tpl.html" />
+    <Content Include="templates\user.list.tpl.html" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>

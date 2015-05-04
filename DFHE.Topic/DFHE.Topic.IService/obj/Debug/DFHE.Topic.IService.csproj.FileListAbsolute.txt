@@ -12,3 +12,17 @@ C:\Users\duan\Desktop\GitHub\Topic\DFHE.Topic\DFHE.Topic.IService\bin\Debug\DFHE
 C:\Users\duan\Desktop\GitHub\Topic\DFHE.Topic\DFHE.Topic.IService\bin\Debug\NVelocity.xml
 C:\Users\duan\Desktop\GitHub\Topic\DFHE.Topic\DFHE.Topic.IService\bin\Debug\zxing.pdb
 C:\Users\duan\Desktop\GitHub\Topic\DFHE.Topic\DFHE.Topic.IService\bin\Debug\zxing.xml
+C:\Users\Administrator\Desktop\Topic\DFHE.Topic\DFHE.Topic.IService\bin\Debug\DFHE.Topic.IService.dll
+C:\Users\Administrator\Desktop\Topic\DFHE.Topic\DFHE.Topic.IService\bin\Debug\DFHE.Topic.IService.pdb
+C:\Users\Administrator\Desktop\Topic\DFHE.Topic\DFHE.Topic.IService\bin\Debug\DFHE.Topic.Model.dll
+C:\Users\Administrator\Desktop\Topic\DFHE.Topic\DFHE.Topic.IService\bin\Debug\DFHE.Topic.Utils.dll
+C:\Users\Administrator\Desktop\Topic\DFHE.Topic\DFHE.Topic.IService\bin\Debug\NVelocity.dll
+C:\Users\Administrator\Desktop\Topic\DFHE.Topic\DFHE.Topic.IService\bin\Debug\zxing.dll
+C:\Users\Administrator\Desktop\Topic\DFHE.Topic\DFHE.Topic.IService\bin\Debug\DFHE.Topic.Model.pdb
+C:\Users\Administrator\Desktop\Topic\DFHE.Topic\DFHE.Topic.IService\bin\Debug\DFHE.Topic.Utils.pdb
+C:\Users\Administrator\Desktop\Topic\DFHE.Topic\DFHE.Topic.IService\bin\Debug\NVelocity.xml
+C:\Users\Administrator\Desktop\Topic\DFHE.Topic\DFHE.Topic.IService\bin\Debug\zxing.pdb
+C:\Users\Administrator\Desktop\Topic\DFHE.Topic\DFHE.Topic.IService\bin\Debug\zxing.xml
+C:\Users\Administrator\Desktop\Topic\DFHE.Topic\DFHE.Topic.IService\obj\Debug\DFHE.Topic.IService.csprojResolveAssemblyReference.cache
+C:\Users\Administrator\Desktop\Topic\DFHE.Topic\DFHE.Topic.IService\obj\Debug\DFHE.Topic.IService.dll
+C:\Users\Administrator\Desktop\Topic\DFHE.Topic\DFHE.Topic.IService\obj\Debug\DFHE.Topic.IService.pdb

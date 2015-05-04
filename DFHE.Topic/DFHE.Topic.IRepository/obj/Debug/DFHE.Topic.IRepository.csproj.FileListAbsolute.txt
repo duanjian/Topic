@@ -5,3 +5,10 @@ C:\Users\duan\Desktop\GitHub\Topic\DFHE.Topic\DFHE.Topic.IRepository\obj\Debug\D
 C:\Users\duan\Desktop\GitHub\Topic\DFHE.Topic\DFHE.Topic.IRepository\obj\Debug\DFHE.Topic.IRepository.csprojResolveAssemblyReference.cache
 C:\Users\duan\Desktop\GitHub\Topic\DFHE.Topic\DFHE.Topic.IRepository\bin\Debug\DFHE.Topic.Model.dll
 C:\Users\duan\Desktop\GitHub\Topic\DFHE.Topic\DFHE.Topic.IRepository\bin\Debug\DFHE.Topic.Model.pdb
+C:\Users\Administrator\Desktop\Topic\DFHE.Topic\DFHE.Topic.IRepository\bin\Debug\DFHE.Topic.IRepository.dll
+C:\Users\Administrator\Desktop\Topic\DFHE.Topic\DFHE.Topic.IRepository\bin\Debug\DFHE.Topic.IRepository.pdb
+C:\Users\Administrator\Desktop\Topic\DFHE.Topic\DFHE.Topic.IRepository\bin\Debug\DFHE.Topic.Model.dll
+C:\Users\Administrator\Desktop\Topic\DFHE.Topic\DFHE.Topic.IRepository\bin\Debug\DFHE.Topic.Model.pdb
+C:\Users\Administrator\Desktop\Topic\DFHE.Topic\DFHE.Topic.IRepository\obj\Debug\DFHE.Topic.IRepository.csprojResolveAssemblyReference.cache
+C:\Users\Administrator\Desktop\Topic\DFHE.Topic\DFHE.Topic.IRepository\obj\Debug\DFHE.Topic.IRepository.dll
+C:\Users\Administrator\Desktop\Topic\DFHE.Topic\DFHE.Topic.IRepository\obj\Debug\DFHE.Topic.IRepository.pdb

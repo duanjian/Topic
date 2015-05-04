@@ -5,9 +5,8 @@
         .module('Topic')
         .controller('MainCtrl', MainCtrl);
 
-    function MainCtrl($scope, delay) {
+    function MainCtrl($scope) {
         this.scope = $scope;
-        this.delay = delay;
         this._init();
     }
 

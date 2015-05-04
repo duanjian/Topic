@@ -2,8 +2,9 @@
     'use strict';
 
     angular
-        .module('Topic.dict',[])
-        .factory("topicDict", function () {
+        .module('Topic.dict', [])
+        .factory('topicDict', function () {
+            //需填信息字典
             var reqDict = [
                 { key: 1, value: '姓名' },
                 { key: 2, value: '手机号码' },
@@ -16,8 +17,15 @@
                 { key: 9, value: '婚姻状态' },
                 { key: 10, value: '意见' }
             ];
+            //模版类型字典
+            var tplTypeDict = [
+                { key: 1, value: '标签页型' },
+                { key: 2, value: '滑动页型' }
+            ];
+
             return {
-                reqDict: reqDict
+                reqDict: reqDict,
+                tplTypeDict: tplTypeDict
             };
         });
 })();
