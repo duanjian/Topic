@@ -41,7 +41,7 @@ namespace DFHE.Topic.Repository
         public virtual T Insert(T entity)
         {
             return _dbSet.Add(entity);
-        }
+        }       
 
         /// <summary>
         /// 删除数据
@@ -128,5 +128,8 @@ namespace DFHE.Topic.Repository
         {
             _dbContext.SaveChanges();
         }
+
+
+       
     }
 }
