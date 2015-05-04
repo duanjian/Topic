@@ -13,11 +13,23 @@ namespace DFHE.Topic.API.Controllers
 {
     public class TopicController : ApiController
     {
+        /// <summary>
+        /// 基于OData的数据查询
+        /// </summary>
+        /// <returns></returns>
         [ODataRoute]
         [EnableQuery]
         public IHttpActionResult Get()
         {
-            return Ok(ServiceLocator.Query<Topic.Model.Topic>());
+            try
+            {
+                var topic = ServiceLocator.Query<Topic.Model.Topic>();
+                return Ok(topic);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
         /// <summary>
@@ -28,8 +40,15 @@ namespace DFHE.Topic.API.Controllers
         [HttpPost]
         public IHttpActionResult Post(Topic.Model.Topic topic)
         {
-            ServiceLocator.Service<ITopicService>().Insert(topic);
-            return Ok();
-        }
+            try
+            {
+                var ret = ServiceLocator.Service<ITopicService>().Insert(topic);
+                return Ok(ret);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }           
+        }        
     }
 }
