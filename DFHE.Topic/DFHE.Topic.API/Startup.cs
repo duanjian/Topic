@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Threading.Tasks;
 using System.Web.Http;
+using System.Web.Http.Cors;
 using System.Web.OData.Builder;
 using System.Web.OData.Extensions;
+using DFHE.Topic.Model;
 using Microsoft.OData.Edm;
 using Microsoft.Owin;
 using Microsoft.Owin.Security.OAuth;
@@ -46,7 +48,7 @@ namespace DFHE.Topic.API
 
             //启用OData支持
             config.MapODataServiceRoute(routeName: "OData", routePrefix: "odata", model: GetEdmModel());
-            app.UseWebApi(config);
+            //app.UseWebApi(config);
 
             #endregion
 
@@ -56,6 +58,9 @@ namespace DFHE.Topic.API
             //config.EnableCors(cors);
 
             #endregion
+
+            app.UseWebApi(config);
+
         }
 
 
@@ -70,6 +75,8 @@ namespace DFHE.Topic.API
             var modelBuilder = new ODataConventionModelBuilder();
 
             modelBuilder.EntitySet<Topic.Model.Topic>("Topic");
+
+            modelBuilder.EntitySet<Template>("Template");
 
             return modelBuilder.GetEdmModel();
         }

@@ -1,10 +1,11 @@
-C:\Users\duan\Desktop\GitHub\Topic\DFHE.Topic\DFHE.Topic.UI\bin\DFHE.Topic.UI.dll.config
-C:\Users\duan\Desktop\GitHub\Topic\DFHE.Topic\DFHE.Topic.UI\bin\DFHE.Topic.UI.dll
-C:\Users\duan\Desktop\GitHub\Topic\DFHE.Topic\DFHE.Topic.UI\bin\DFHE.Topic.UI.pdb
-C:\Users\duan\Desktop\GitHub\Topic\DFHE.Topic\DFHE.Topic.UI\obj\Debug\DFHE.Topic.UI.dll
-C:\Users\duan\Desktop\GitHub\Topic\DFHE.Topic\DFHE.Topic.UI\obj\Debug\DFHE.Topic.UI.pdb
 C:\Users\Administrator\Desktop\Topic\DFHE.Topic\DFHE.Topic.UI\bin\DFHE.Topic.UI.dll
 C:\Users\Administrator\Desktop\Topic\DFHE.Topic\DFHE.Topic.UI\bin\DFHE.Topic.UI.pdb
 C:\Users\Administrator\Desktop\Topic\DFHE.Topic\DFHE.Topic.UI\obj\Debug\DFHE.Topic.UI.csprojResolveAssemblyReference.cache
 C:\Users\Administrator\Desktop\Topic\DFHE.Topic\DFHE.Topic.UI\obj\Debug\DFHE.Topic.UI.dll
 C:\Users\Administrator\Desktop\Topic\DFHE.Topic\DFHE.Topic.UI\obj\Debug\DFHE.Topic.UI.pdb
+C:\Users\duan\Desktop\GitHub\Topic\DFHE.Topic\DFHE.Topic.UI\bin\DFHE.Topic.UI.dll.config
+C:\Users\duan\Desktop\GitHub\Topic\DFHE.Topic\DFHE.Topic.UI\bin\DFHE.Topic.UI.dll
+C:\Users\duan\Desktop\GitHub\Topic\DFHE.Topic\DFHE.Topic.UI\bin\DFHE.Topic.UI.pdb
+C:\Users\duan\Desktop\GitHub\Topic\DFHE.Topic\DFHE.Topic.UI\obj\Debug\DFHE.Topic.UI.csprojResolveAssemblyReference.cache
+C:\Users\duan\Desktop\GitHub\Topic\DFHE.Topic\DFHE.Topic.UI\obj\Debug\DFHE.Topic.UI.dll
+C:\Users\duan\Desktop\GitHub\Topic\DFHE.Topic\DFHE.Topic.UI\obj\Debug\DFHE.Topic.UI.pdb

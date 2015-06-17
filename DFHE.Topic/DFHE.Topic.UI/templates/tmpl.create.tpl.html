@@ -1,4 +1,33 @@
-﻿<div class="panel colourable">
+﻿
+<style>
+    ul.dropdown-menu {
+        border: 4px solid #ccc;
+        padding: 0px 0;
+    }
+</style>
+
+<style>
+    .btn-primary:focus {
+        border-color: #1a7ab9;
+        border-bottom-color: #16689e;
+        background: #1d89cf;
+        background-image: -webkit-linear-gradient(top,#1e8cd3 0,#1a7ab9 100%);
+        background-image: linear-gradient(to bottom,#1e8cd3 0,#1a7ab9 100%);
+        background-repeat: repeat-x;
+    }
+
+    .btn-primary:hover {
+        color: #fff;
+        border-color: #1871ab;
+        border-bottom-color: #12547e;
+        background: #1a7ab9 !important;
+        background-image: -webkit-linear-gradient(top,#1c83c6 0,#1871ab 100%) !important;
+        background-image: linear-gradient(to bottom,#1c83c6 0,#1871ab 100%) !important;
+        background-repeat: repeat-x;
+    }
+</style>
+
+<div class="panel colourable">
     <div class="panel-heading">
         <span class="panel-title">模版配置</span>
         <div class="panel-heading-controls">
@@ -14,57 +43,109 @@
         <div class="row">
             <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
                 <div class="device-preview">
-                    <!--<div id="example-header" class="ionic-body active-preview">
-                       // http://localhost:9055/html/blank.html
-                </div>-->
-                    <iframe id="prevFrame" sandbox="allow-scripts allow-pointer-lock allow-same-origin allow-popups allow-forms" allowtransparency="true" src="http://192.168.1.109:8001/#/tab/dash" frameborder="0" class="ionic-body active-preview"></iframe>
-                </div>
-                <!--http://192.168.1.109:8001/#/tab/dash
-                http://192.168.1.109:8002/demos/03-vertical.html
-            http://localhost:9055/html/signin.html-->
-                <!--<button type="button" ng-click="test()">show</button>-->
+                    <iframe id="templatePreviewFrame" sandbox="allow-scripts allow-pointer-lock allow-same-origin allow-popups allow-forms" allowtransparency="true" src="http://localhost:2381/Statics/Samples/Tab/TabTemplateSample.html" frameborder="0" class="ionic-body active-preview"></iframe>
+                </div>                
             </div>
 
             <div class="col-xs-12 col-sm-6 col-md-8 col-lg-8">
-                <form class="form-horizontal">
-                    <!--  <div class="form-group">
-                        
-                    </div>-->
-                    <!--<div class="form-group">
-                        <label for="inputTopicName" class="col-sm-2 control-label">标签个数</label>
+                <form class="form-horizontal" id="templateform" ng-submit="save(e)">
+                    <div class="form-group">
+                        <label for="inputTopicName" class="col-sm-2 control-label">模版标题</label>
                         <div class="col-sm-10">
-                            <input type="number" class="form-control" id="inputTopicName" placeholder="标签个数(1-9)" min="1" max="9" required ng-model="Topic.PageCount">
+                            <input type="text" class="form-control" id="inputTemplateName" placeholder="模版名称" required ng-model="template.TemplateTitle">
                         </div>
-                    </div>-->
-                    <div class="panel widget-followers">
+                    </div>
+
+                    <div class="panel widget-followers" ng-show="selectedType.key == 1">
                         <div class="panel-heading">
-                            <span class="panel-title"><i class="panel-title-icon fa fa-bars"></i>色彩配置</span>
+                            <span class="panel-title"><i class="panel-title-icon fa fa-bars"></i>样式配置</span>
                         </div>
                         <!-- / .panel-heading -->
                         <div class="panel-body">
 
                             <div class="follower">
                                 <div class="form-group">
+                                    <div class="col-sm-12">
+                                        <label class="control-label" style="color:red;">PS:颜色选择器中仅9种颜色开放选择，其它选项无效，选择了其它颜色将会选中默认项。</label>
+                                    </div>
+                                </div>
+                            </div>
 
-                                    <label for="inputTopicName" class="col-sm-2 control-label">标签背景色</label>
+                            <div class="follower">
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">顶部导航栏</label>
                                     <div class="col-sm-10">
-                                        <input type="color" value="#333333" list="colors">
-                                        <datalist id="Datalist1">
-                                            <option>#ffffff</option>
-                                            <option>#ff0000</option>
-                                            <option>#ff7700</option>
+
+                                        <div class="btn-group" data-toggle="buttons">
+                                            <label class="btn btn btn-primary " for="optShow" ng-click="optShowHeader()">
+                                                <input type="radio" value="1" name="optBottomSubmit" id="optShowHeader"> 显示
+                                            </label>
+                                            <label class="btn btn btn-primary active" for="optHide" ng-click="optHideHeader()">
+                                                <input type="radio" value="0" name="optBottomSubmit" id="optHideHeader"> 隐藏
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div ng-show="tabStyle.ShowHeader">
+                                    <div class="form-group">
+                                        <label for="inputHeaderBgColor" class="col-sm-2 control-label">顶部导航背景色</label>
+                                        <div class="col-sm-10">
+                                            <input type="color" value="#387ef5" list="inputHeaderBgColorList" id="inputHeaderBgColor">
+                                            <datalist id="inputHeaderBgColorList">
+                                                <option ng-repeat="color in colorDict" data-colorname="{{color.value}}">{{color.key}}</option>
+                                            </datalist>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="inputHeaderFColor" class="col-sm-2 control-label">顶部导航前景色</label>
+                                        <div class="col-sm-10">
+                                            <input type="color" value="#ffffff" list="inputHeaderFColorList" id="inputHeaderFColor">
+                                            <datalist id="inputHeaderFColorList">
+                                                <option ng-repeat="color in colorDict" data-colorname="{{color.value}}">{{color.key}}</option>
+                                            </datalist>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="follower">
+
+
+
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">标签位置</label>
+                                    <div class="col-sm-10">
+                                        <div class="btn-group" data-toggle="buttons">
+                                            <label class="btn btn btn-primary active" id="optTabHeader">
+                                                <input type="radio" value="header" name="optTabPosition" id="optHeader"> 顶部
+                                            </label>
+                                            <label class="btn btn btn-primary" id="optTabBottom">
+                                                <input type="radio" value="footer" name="optTabPosition" id="optBottom"> 底部
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="inputTabBgColor" class="col-sm-2 control-label">标签背景色</label>
+                                    <div class="col-sm-10">
+                                        <input type="color" value="#387ef5" list="inputTabBgColorList" id="inputTabBgColor">
+                                        <datalist id="inputTabBgColorList">
+                                            <option ng-repeat="color in colorDict" data-colorname="{{color.value}}">{{color.key}}</option>
+
                                         </datalist>
                                     </div>
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="inputTopicName" class="col-sm-2 control-label">标签前景色</label>
+                                    <label for="inputTabFColor" class="col-sm-2 control-label">标签前景色</label>
                                     <div class="col-sm-10">
-                                        <input type="color" value="#333333" list="colors">
-                                        <datalist id="colors">
-                                            <option>#ffffff</option>
-                                            <option>#ff0000</option>
-                                            <option>#ff7700</option>
+                                        <input type="color" value="#ffffff" list="inputTabFColorList" id="inputTabFColor">
+                                        <datalist id="inputTabFColorList">
+                                            <option ng-repeat="color in colorDict" data-colorname="{{color.value}}">{{color.key}}</option>
+
                                         </datalist>
                                     </div>
                                 </div>
@@ -72,66 +153,222 @@
 
                             <div class="follower">
                                 <div class="form-group">
-
-                                    <label for="inputTopicName" class="col-sm-2 control-label">内容背景色</label>
+                                    <label for="inputContentBgColor" class="col-sm-2 control-label">内容背景色</label>
                                     <div class="col-sm-10">
-                                        <input type="color" value="#333333" list="colors">
-                                        <datalist id="Datalist2">
-                                            <option>#ffffff</option>
-                                            <option>#ff0000</option>
-                                            <option>#ff7700</option>
+                                        <input type="color" value="#f8f8f8" list="inputContentBgColorList" id="inputContentBgColor">
+                                        <datalist id="inputContentBgColorList">
+                                            <option ng-repeat="color in colorDict" data-colorname="{{color.value}}">{{color.key}}</option>
                                         </datalist>
                                     </div>
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="inputTopicName" class="col-sm-2 control-label">内容前景色</label>
+                                    <label for="inputContentFColor" class="col-sm-2 control-label">内容前景色</label>
                                     <div class="col-sm-10">
-                                        <input type="color" value="#333333" list="colors">
-                                        <datalist id="Datalist3">
-                                            <option>#ffffff</option>
-                                            <option>#ff0000</option>
-                                            <option>#ff7700</option>
+                                        <input type="color" value="#444444" list="inputContentFColorList" id="inputContentFColor">
+                                        <datalist id="inputContentFColorList">
+                                            <option ng-repeat="color in colorDict" data-colorname="{{color.value}}">{{color.key}}</option>
                                         </datalist>
                                     </div>
                                 </div>
                             </div>
-                            
+
                             <div class="follower">
                                 <div class="form-group">
-
-                                    <label for="inputTopicName" class="col-sm-2 control-label">提交按钮背景色</label>
+                                    <label class="col-sm-2 control-label">底部按钮</label>
                                     <div class="col-sm-10">
-                                        <input type="color" value="#333333" list="colors">
-                                        <datalist id="Datalist4">
-                                            <option>#ffffff</option>
-                                            <option>#ff0000</option>
-                                            <option>#ff7700</option>
-                                        </datalist>
+                                        <!--id="rdoShowBottomSubmit"-->
+                                        <div class="btn-group" data-toggle="buttons">
+                                            <label class="btn btn btn-primary active" for="optShow" ng-click="optShowBottomSubmit()">
+                                                <input type="radio" value="1" name="optBottomSubmit" id="optShow"> 显示
+                                            </label>      <!--id="optHideLabel"-->
+                                            <label class="btn btn btn-primary" for="optHide" ng-click="optHideBottomSubmit()">
+                                                <input type="radio" value="0" name="optBottomSubmit" id="optHide"> 隐藏
+                                            </label>
+                                        </div>
                                     </div>
                                 </div>
 
-                                <div class="form-group">
-                                    <label for="inputTopicName" class="col-sm-2 control-label">提交按钮前景色</label>
-                                    <div class="col-sm-10">
-                                        <input type="color" value="#333333" list="colors">
-                                        <datalist id="Datalist5">
-                                            <option>#ffffff</option>
-                                            <option>#ff0000</option>
-                                            <option>#ff7700</option>
-                                        </datalist>
+                                <div ng-show="tabStyle.ShowBottomSubmitButton == !!1">
+                                    <div class="form-group">
+                                        <label for="inputSubBtnBgColor" class="col-sm-2 control-label">底部按钮背景色</label>
+                                        <div class="col-sm-10">
+                                            <input type="color" value="#387ef5" list="inputSubBtnBgColorList" id="inputSubBtnBgColor">
+                                            <datalist id="inputSubBtnBgColorList">
+                                                <option ng-repeat="color in colorDict" data-colorname="{{color.value}}">{{color.key}}</option>
+                                            </datalist>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="inputSubBtnFColor" class="col-sm-2 control-label">底部按钮前景色</label>
+                                        <div class="col-sm-10">
+                                            <input type="color" value="#ffffff" list="inputSubBtnFColorList" id="inputSubBtnFColor">
+                                            <datalist id="inputSubBtnFColorList">
+                                                <option ng-repeat="color in colorDict" data-colorname="{{color.value}}">{{color.key}}</option>
+                                            </datalist>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
+                            <!--<div class="follower">
+                                <button type="button" id="btnLoading" data-loading-text="Loading..." class="btn btn-primary" ng-click="preview($event)">预览</button>
 
+                                <button type="submit" id="btnSaving" data-loading-text="Saving..." class="btn btn-primary" form="templateform">保存</button>
+                            </div>-->
                         </div>
                     </div>
 
+                    <div class="panel widget-followers" ng-show="selectedType.key == 2">
+                        <div class="panel-heading">
+                            <span class="panel-title"><i class="panel-title-icon fa fa-bars"></i>样式配置</span>
+                        </div>
+                        <!-- / .panel-heading -->
+                        <div class="panel-body">
+
+                            <div class="follower">
+                                <div class="form-group">
+                                    <div class="col-sm-12">
+                                        <label class="control-label" style="color:red;">PS:颜色选择器中仅9种颜色开放选择，其它选项无效，选择了其它颜色将会选中默认项。</label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="follower">
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">背景色</label>
+                                    <div class="col-sm-10">
+                                        <input type="color" value="##444444" list="inputSwiperBgColorList" id="inputSwiperBgColor">
+                                        <datalist id="inputSwiperBgColorList">
+                                            <option ng-repeat="color in colorDict" data-colorname="{{color.value}}">{{color.key}}</option>
+                                        </datalist>                                        
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="follower">
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">前景色</label>
+                                    <div class="col-sm-10">
+                                        <input type="color" value="#f8f8f8" list="inputSwiperFColorList" id="inputSwiperFColor">
+                                        <datalist id="inputSwiperFColorList">
+                                            <option ng-repeat="color in colorDict" data-colorname="{{color.value}}">{{color.key}}</option>
+                                        </datalist>
+                                    </div>
+                                </div>
+                            </div>   
+                            <div class="follower">
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">分页标签</label>
+                                    <div class="col-sm-10">
+                                        <div class="btn-group" data-toggle="buttons">
+                                            <label class="btn btn btn-primary active" for="optShowPagination" ng-click="optShowPagination(1)">
+                                                <input type="radio" value="1" name="optPagination" id="optShowPagination"> 显示
+                                            </label>      <!--id="optHideLabel"-->
+                                            <label class="btn btn btn-primary" for="optHidePagination" ng-click="optShowPagination(0)">
+                                                <input type="radio" value="0" name="optPagination" id="optHidePagination"> 隐藏
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>   
+                            <div class="follower">
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">滑动方向</label>
+                                    <div class="col-sm-10">
+                                        <div class="btn-group" data-toggle="buttons">
+                                            <label class="btn btn btn-primary" for="optHDirection" ng-click="optDirection(1)">
+                                                <input type="radio" value="1" name="optDirection" id="optHDirection"> 水平
+                                            </label>
+                                            <label class="btn btn btn-primary active" for="optVDirection" ng-click="optDirection(2)">
+                                                <input type="radio" value="0" name="optDirection" id="optVDirection"> 垂直
+                                            </label>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>           
+                            <div class="follower">
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">自动播放</label>
+                                    <div class="col-sm-10">
+                                        <div class="btn-group" data-toggle="buttons">
+                                            <label class="btn btn btn-primary" for="optAutoplayYes" ng-click="optAutoplay(1)">
+                                                <input type="radio" value="1" name="optAutoplay" id="optAutoplayYes"> 是
+                                            </label>    
+                                            <label class="btn btn btn-primary active" for="optAutoplayNo" ng-click="optAutoplay(0)">
+                                                <input type="radio" value="0" name="optAutoplay" id="optAutoplayNo"> 否
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="follower" ng-show="swiperStyle.Autoplay == true">
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">自动播放间隔</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control" id="inputAutolayTimeInterval" placeholder="自动播放间隔（毫秒）" required ng-model="swiperStyle.AutoplayTimeInterval">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="follower">
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">打断自动播放</label>
+                                    <div class="col-sm-10">
+                                        <div class="btn-group" data-toggle="buttons">
+                                            <label class="btn btn btn-primary active" for="optAutoplayInteractionYes" ng-click="optAutoplayInteraction(1)">
+                                                <input type="radio" value="1" name="optAutoplayInteraction" id="optAutoplayInteractionYes"> 是
+                                            </label>      
+                                            <label class="btn btn btn-primary" for="optAutoplayNo" ng-click="optAutoplayInteraction(0)">
+                                                <input type="radio" value="0" name="optAutoplayInteractionNo" id="optAutoplayInteractionNo"> 否
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="follower">
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">循环</label>
+                                    <div class="col-sm-10">
+                                        <div class="btn-group" data-toggle="buttons">
+                                            <label class="btn btn btn-primary active" for="optLoopYes" ng-click="optLoop(1)">
+                                                <input type="radio" value="1" name="optLoop" id="optLoopYes"> 是
+                                            </label>    
+                                            <label class="btn btn btn-primary" for="optLoopNo" ng-click="optLoop(0)">
+                                                <input type="radio" value="0" name="optLoop" id="optLoopNo"> 否
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                           
+                        </div>
+                    </div>
+
+                    <div class="follower">
+                        <button type="button" id="btnLoading" data-loading-text="Loading..." class="btn btn-primary" ng-click="preview($event)">预览</button>
+
+                        <button type="submit" id="btnSaving" data-loading-text="Saving..." class="btn btn-primary" form="templateform">保存</button>
+                    </div>
                 </form>
             </div>
         </div>
-
-
-
     </div>
 </div>
+
+<!--<script type="text/ng-template" id="templates/colorpicker">
+    <div class="btn-group">
+        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">Default&nbsp;<i class="fa fa-caret-down"></i></button>
+        <ul class="dropdown-menu">
+            <li><a href="javascript:void(0)" style="background-color: white; color: black; ">light</a></li>
+            <li><a href="javascript:void(0)" style="background-color: #f8f8f8; color: black; ">stable</a></li>
+            <li><a href="javascript:void(0)" style="background-color: #387ef5; color: white; ">Positive</a></li>
+            <li><a href="javascript:void(0)" style="background-color: #11c1f3; color: white; ">Calm   action</a></li>
+            <li><a href="javascript:void(0)" style="background-color: #33cd5f; color: white; ">balanced</a></li>
+            <li><a href="javascript:void(0)" style="background-color: #ffc900; color: white; ">energized</a></li>
+            <li><a href="javascript:void(0)" style="background-color: #ef473a; color: white; ">assertive</a></li>
+            <li><a href="javascript:void(0)" style="background-color: #886aea; color: white; ">royal</a></li>
+            <li><a href="javascript:void(0)" style="background-color: #444444; color: white; ">dark</a></li>
+        </ul>
+    </div>
+</script>-->

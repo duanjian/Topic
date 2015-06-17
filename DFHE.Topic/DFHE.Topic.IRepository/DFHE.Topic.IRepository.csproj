@@ -41,6 +41,7 @@
   <ItemGroup>
     <Compile Include="Infrastructure\IBaseRepository.cs" />
     <Compile Include="Infrastructure\IUnitOfWork.cs" />
+    <Compile Include="ITemplateRepository.cs" />
     <Compile Include="ITopicRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

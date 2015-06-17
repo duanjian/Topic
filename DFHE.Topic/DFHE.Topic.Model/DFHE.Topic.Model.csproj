@@ -50,13 +50,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Enum\TemplateType.cs" />
     <Compile Include="Model\Page.cs" />
     <Compile Include="Model\Respondent.cs" />
     <Compile Include="Model\Template.cs" />
     <Compile Include="Model\Topic.cs" />
     <Compile Include="Model\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StyleObject\SwiperStyle.cs" />
+    <Compile Include="StyleObject\TabStyle.cs" />
+    <Compile Include="VO\PageVO.cs" />
     <Compile Include="VO\ResultVO.cs" />
+    <Compile Include="VO\TemplateSampleVO.cs" />
+    <Compile Include="VO\TopicVO.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <id>NReco.PhantomJS</id>
+    <version>1.0.1.0</version>
+    <title>NReco.PhantomJS</title>
+    <authors>Vitalii Fedorchenko</authors>
+    <owners>Vitalii Fedorchenko</owners>
+    <licenseUrl>http://www.nrecosite.com/phantomjs_wrapper_net.aspx</licenseUrl>
+    <projectUrl>http://www.nrecosite.com/phantomjs_wrapper_net.aspx</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>NReco.PhantomJS is a .NET wrapper for running PhantomJS (headless WebKit browser) from C#/.NET code.</description>
+    <releaseNotes>v.1.0.1 changes: 
+- fixed issue with resolving default phantomjs.exe location
+- fixed issue that prevents stdin from working</releaseNotes>
+    <copyright>Copyright 2015 Vitalii Fedorchenko</copyright>
+    <tags>PhantomJS Wrapper WebKit headless automation javascript</tags>
+    <dependencies>
+      <dependency id="PhantomJS" version="2.0.0" />
+    </dependencies>
+  </metadata>
+</package>

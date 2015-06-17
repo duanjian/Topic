@@ -8,9 +8,10 @@ using DFHE.Topic.IRepository;
 
 namespace DFHE.Topic.Repository
 {
-    public class TopicRepository: BaseRepository<Topic.Model.Topic>
+    public class TopicRepository : BaseRepository<Topic.Model.Topic>, ITopicRepository
     {
-        public TopicRepository(DbContext dbContext):base(dbContext)
+        public TopicRepository(DbContext dbContext)
+            : base(dbContext)
         {
 
         }

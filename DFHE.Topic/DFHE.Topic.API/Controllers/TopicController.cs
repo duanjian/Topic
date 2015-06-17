@@ -4,10 +4,12 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using System.Web.Http.Cors;
 using System.Web.OData;
 using System.Web.OData.Routing;
 using DFHE.Topic.Configuration;
 using DFHE.Topic.IService;
+using DFHE.Topic.Model;
 
 namespace DFHE.Topic.API.Controllers
 {
@@ -19,12 +21,13 @@ namespace DFHE.Topic.API.Controllers
         /// <returns></returns>
         [ODataRoute]
         [EnableQuery]
+        [EnableCors(origins: "*", headers: "*", methods: "*")]
         public IHttpActionResult Get()
         {
             try
             {
-                var topic = ServiceLocator.Query<Topic.Model.Topic>();
-                return Ok(topic);
+                var topics = ServiceLocator.Query<Topic.Model.Topic>();
+                return Ok(topics);
             }
             catch (Exception ex)
             {
@@ -49,6 +52,22 @@ namespace DFHE.Topic.API.Controllers
             {
                 return BadRequest(ex.Message);
             }           
-        }        
+        }
+
+        [HttpPost]
+        [Route("api/topic/sample")]
+        public IHttpActionResult Sample(TopicVO topic)
+        {
+            try
+            {
+                var ret = ServiceLocator.Service<ITopicService>().GenerateSample(topic).Result;
+                return Ok(ret);
+            }
+            catch (Exception ex)
+            {
+                return InternalServerError(ex);
+            }
+
+        }
     }
 }

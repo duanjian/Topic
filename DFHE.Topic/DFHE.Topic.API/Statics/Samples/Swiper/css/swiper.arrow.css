@@ -1,0 +1,65 @@
+.arrow {
+    width: 27px;
+    height: 25px;
+    background: url(../img/arrow.png) no-repeat;
+    _background-image: url(../img/arrow.png);
+    position: absolute;
+    bottom: 5%;
+    left: 50%;
+    margin-left: -13px;
+    cursor: pointer;
+    z-index: 2;
+    opacity: .6;
+    -webkit-animation: up_down 1000ms linear infinite;
+    -moz-animation: up_down 1000ms linear infinite;
+    -ms-animation: up_down 1000ms linear infinite;
+    animation: up_down 1000ms linear infinite;
+}
+
+@-webkit-keyframes up_down {
+    0% {
+        -webkit-transform: translateY(0px);
+    }
+    50% {
+        -webkit-transform: translateY(10px);
+    }
+    100% {
+        -webkit-transform: translateY(0px);
+    }
+}
+
+@-moz-keyframes up_down {
+    0% {
+        -moz-transform: translateY(0px);
+    }
+    50% {
+        -moz-transform: translateY(10px);
+    }
+    100% {
+        -moz-transform: translateY(0px);
+    }
+}
+
+@-ms-keyframes up_down {
+    0% {
+        -ms-transform: translateY(0px);
+    }
+    50% {
+        -ms-transform: translateY(10px);
+    }
+    100% {
+        -ms-transform: translateY(0px);
+    }
+}
+
+@keyframes up_down {
+    0% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(10px);
+    }
+    100% {
+        transform: translateY(0px);
+    }
+}

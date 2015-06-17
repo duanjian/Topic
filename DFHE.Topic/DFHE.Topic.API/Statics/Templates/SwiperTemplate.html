@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>@Model.Topic.TopicTitle</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+    <!-- Link Swiper's CSS -->
+    <link rel="stylesheet" href="lib/dist/css/swiper.min.css">
+    <!-- arrow styles -->
+    <link rel="stylesheet" href="css/swiper.arrow.css">
+
+    <style>
+    html,
+    body {
+        position: relative;
+        height: 100%;
+    }
+    
+    body {
+        background: #eee;
+        font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+        font-size: 14px;
+        color: #000;
+        margin: 0;
+        padding: 0;
+    }
+    
+    .swiper-container {
+        width: 100%;
+        height: 100%;
+    }
+    
+    .swiper-slide {
+        text-align: center;
+        font-size: 18px;
+        background: @Model.Template.TemplateContent.BackgroundColor;
+        color: @Model.Template.TemplateContent.ForegroundColor;                
+        -moz-background-size: cover;
+        -webkit-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+    }               
+    </style>
+</head>
+
+<body>
+    <!-- Swiper -->
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+            @{ var pageIndex = 0; }
+            @foreach(var page in @Model.Pages){
+                pageIndex = pageIndex + 1;
+                var slideHash = "slide" + pageIndex;
+                <div class="swiper-slide" data-hash="@slideHash">
+                    @page.PageContent;
+
+                    @if(@Model.Template.TemplateContent.Direction == "vertical"){
+                        <div class="arrow"></div>                        
+                    }
+                </div> 
+            }                      
+        </div>
+        <!-- Add Pagination -->
+        <div class="swiper-pagination"></div>
+    </div>
+    <!-- Swiper JS -->
+    <script src="lib/dist/js/swiper.min.js"></script>
+    <!-- Initialize Swiper -->
+    <script>
+    var swiper = new Swiper('.swiper-container', {
+        mousewheelControl: true,
+
+        @if(@Model.Template.TemplateContent.ShowPagination){
+            <text>
+            pagination: '.swiper-pagination',
+            paginationClickable: true, 
+            </text>
+        }
+
+        @if(@Model.Template.TemplateContent.Direction == "vertical"){
+            <text>
+            direction: 'vertical',
+            nextButton: '.arrow',
+            </text>
+        }else if(@Model.Template.TemplateContent.Direction == "horizontal"){
+            <text>
+            direction: 'horizontal',
+            </text>
+        }
+
+        @if(@Model.Template.TemplateContent.Loop){
+            <text>
+            loop: true,
+            </text>
+        }
+
+        @if(@Model.Template.TemplateContent.Autoplay){
+            <text>
+            autoplay: @Model.Template.TemplateContent.AutoplayTimeInterval,
+            </text>
+        }
+
+        @if(@Model.Template.TemplateContent.AutoplayDisableOnInteraction){
+            <text>
+            autoplayDisableOnInteraction: true,
+            </text>
+        }else{
+            <text>
+            autoplayDisableOnInteraction: false,
+            </text>
+        }
+
+                
+    });
+    </script>
+</body>
+
+</html>

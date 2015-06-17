@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
+using System.Data.Entity.ModelConfiguration.Conventions;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,14 +13,16 @@ namespace DFHE.Topic.Repository
     public class TopicContext:DbContext
     {
         public TopicContext()
-            : base("name=DFHE_TopicEntities")
+            : base("name=DFHE_Topic")
         {
-
+            Database.SetInitializer<TopicContext>(null);
         }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            throw new UnintentionalCodeFirstException();
+            modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
+
+            base.OnModelCreating(modelBuilder);
         }
 
         public virtual DbSet<Page> Page { get; set; }

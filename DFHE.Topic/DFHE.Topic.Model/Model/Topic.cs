@@ -15,7 +15,7 @@ namespace DFHE.Topic.Model
         public Nullable<int> PageCount { get; set; }
         public string StaticURI { get; set; }
         public Nullable<int> SubmitType { get; set; }
-        public string LocateURI { get; set; }
+        public string RedirectURI { get; set; }
         public string RequiredInfos { get; set; }
         public Nullable<int> CreateId { get; set; }
         public Nullable<System.DateTime> CreateTime { get; set; }

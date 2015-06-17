@@ -23,9 +23,38 @@
                 { key: 2, value: '滑动页型' }
             ];
 
+            //模版颜色配置
+            var colorDict = [
+                { key: '#ffffff', value: 'light' },
+                { key: '#f8f8f8', value: 'stable' },
+                { key: '#387ef5', value: 'positive' },
+                { key: '#11c1f3', value: 'calm' },
+                { key: '#33cd5f', value: 'balanced' },
+                { key: '#ffc900', value: 'energized' },
+                { key: '#ef473a', value: 'assertive' },
+                { key: '#886aea', value: 'royal' },
+                { key: '#444444', value: 'dark' }
+            ];
+
+            //模版颜色字典
+            var colorDict4Trans =
+                {
+                    '#ffffff': 'light',
+                    '#f8f8f8': 'stable',
+                    '#387ef5': 'positive',
+                    '#11c1f3': 'calm',
+                    '#33cd5f': 'balanced',
+                    '#ffc900': 'energized',
+                    '#ef473a': 'assertive',
+                    '#886aea': 'royal',
+                    '#444444': 'dark'
+                };
+            
             return {
                 reqDict: reqDict,
-                tplTypeDict: tplTypeDict
+                tplTypeDict: tplTypeDict,
+                colorDict: colorDict,
+                colorDict4Trans: colorDict4Trans
             };
         });
 })();

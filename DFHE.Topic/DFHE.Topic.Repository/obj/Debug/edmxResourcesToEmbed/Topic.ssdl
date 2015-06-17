@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DFHE_TopicModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Page">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TopicID" Type="int" />
+    <Property Name="PageTitle" Type="nvarchar" MaxLength="512" />
+    <Property Name="PageContent" Type="nvarchar(max)" />
+    <Property Name="PageBgImage" Type="nvarchar" MaxLength="512" />
+    <Property Name="CreateID" Type="int" />
+    <Property Name="CreateTime" Type="datetime" />
+    <Property Name="UpdateTime" Type="datetime" />
+    <Property Name="Deleted" Type="bit" />
+    <Property Name="Remark" Type="nvarchar" MaxLength="256" />
+  </EntityType>
+  <EntityType Name="Respondent">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="8" />
+    <Property Name="Mobile" Type="nvarchar" MaxLength="16" />
+    <Property Name="Age" Type="int" />
+    <Property Name="Gender" Type="nvarchar" MaxLength="2" />
+    <Property Name="Education" Type="nvarchar" MaxLength="16" />
+    <Property Name="Occupation" Type="nvarchar" MaxLength="32" />
+    <Property Name="Location" Type="nvarchar" MaxLength="32" />
+    <Property Name="Address" Type="nvarchar" MaxLength="128" />
+    <Property Name="MaritalStatus" Type="nvarchar" MaxLength="16" />
+    <Property Name="Referrer" Type="nvarchar" MaxLength="16" />
+    <Property Name="Suggestion" Type="nvarchar" MaxLength="256" />
+    <Property Name="CreateTime" Type="datetime" />
+    <Property Name="Deleted" Type="bit" />
+    <Property Name="Remark" Type="nvarchar" MaxLength="256" />
+  </EntityType>
+  <EntityType Name="Template">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TemplateTitle" Type="nvarchar" MaxLength="256" />
+    <Property Name="Type" Type="int" />
+    <Property Name="TemplateContent" Type="nvarchar(max)" />
+    <Property Name="URI" Type="nvarchar" MaxLength="512" />
+    <Property Name="CreateID" Type="int" />
+    <Property Name="CreateTime" Type="datetime" />
+    <Property Name="UpdateTime" Type="datetime" />
+    <Property Name="Deleted" Type="bit" />
+    <Property Name="Remark" Type="nvarchar" MaxLength="256" />
+  </EntityType>
+  <EntityType Name="Topic">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TopicTitle" Type="nvarchar" MaxLength="65" />
+    <Property Name="Type" Type="int" />
+    <Property Name="TemplateId" Type="int" />
+    <Property Name="PageCount" Type="int" />
+    <Property Name="StaticURI" Type="nvarchar" MaxLength="512" />
+    <Property Name="SubmitType" Type="int" />
+    <Property Name="RedirectURI" Type="nvarchar" MaxLength="512" />
+    <Property Name="RequiredInfos" Type="nvarchar" MaxLength="32" />
+    <Property Name="CreateId" Type="int" />
+    <Property Name="CreateTime" Type="datetime" />
+    <Property Name="UpdateTime" Type="datetime" />
+    <Property Name="Deleted" Type="bit" />
+    <Property Name="Remark" Type="nvarchar" MaxLength="256" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserName" Type="nvarchar" MaxLength="32" />
+    <Property Name="RealName" Type="nvarchar" MaxLength="16" />
+    <Property Name="Password" Type="nvarchar" MaxLength="64" />
+    <Property Name="CreateTime" Type="datetime" />
+    <Property Name="Deleted" Type="bit" />
+    <Property Name="Remark" Type="nvarchar" MaxLength="256" />
+  </EntityType>
+  <EntityContainer Name="DFHE_TopicModelStoreContainer">
+    <EntitySet Name="Page" EntityType="Self.Page" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Respondent" EntityType="Self.Respondent" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Template" EntityType="Self.Template" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Topic" EntityType="Self.Topic" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

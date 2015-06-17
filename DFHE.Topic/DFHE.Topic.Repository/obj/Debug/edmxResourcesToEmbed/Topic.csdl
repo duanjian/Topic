@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DFHE_TopicModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Page">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TopicID" Type="Int32" />
+    <Property Name="PageTitle" Type="String" MaxLength="512" FixedLength="false" Unicode="true" />
+    <Property Name="PageContent" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PageBgImage" Type="String" MaxLength="512" FixedLength="false" Unicode="true" />
+    <Property Name="CreateID" Type="Int32" />
+    <Property Name="CreateTime" Type="DateTime" Precision="3" />
+    <Property Name="UpdateTime" Type="DateTime" Precision="3" />
+    <Property Name="Deleted" Type="Boolean" />
+    <Property Name="Remark" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Respondent">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="8" FixedLength="false" Unicode="true" />
+    <Property Name="Mobile" Type="String" MaxLength="16" FixedLength="false" Unicode="true" />
+    <Property Name="Age" Type="Int32" />
+    <Property Name="Gender" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+    <Property Name="Education" Type="String" MaxLength="16" FixedLength="false" Unicode="true" />
+    <Property Name="Occupation" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+    <Property Name="Location" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+    <Property Name="Address" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="MaritalStatus" Type="String" MaxLength="16" FixedLength="false" Unicode="true" />
+    <Property Name="Referrer" Type="String" MaxLength="16" FixedLength="false" Unicode="true" />
+    <Property Name="Suggestion" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="CreateTime" Type="DateTime" Precision="3" />
+    <Property Name="Deleted" Type="Boolean" />
+    <Property Name="Remark" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Template">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TemplateTitle" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="Type" Type="Int32" />
+    <Property Name="TemplateContent" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="URI" Type="String" MaxLength="512" FixedLength="false" Unicode="true" />
+    <Property Name="CreateID" Type="Int32" />
+    <Property Name="CreateTime" Type="DateTime" Precision="3" />
+    <Property Name="UpdateTime" Type="DateTime" Precision="3" />
+    <Property Name="Deleted" Type="Boolean" />
+    <Property Name="Remark" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Topic">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TopicTitle" Type="String" MaxLength="65" FixedLength="false" Unicode="true" />
+    <Property Name="Type" Type="Int32" />
+    <Property Name="TemplateId" Type="Int32" />
+    <Property Name="PageCount" Type="Int32" />
+    <Property Name="StaticURI" Type="String" MaxLength="512" FixedLength="false" Unicode="true" />
+    <Property Name="SubmitType" Type="Int32" />
+    <Property Name="RedirectURI" Type="String" MaxLength="512" FixedLength="false" Unicode="true" />
+    <Property Name="RequiredInfos" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+    <Property Name="CreateId" Type="Int32" />
+    <Property Name="CreateTime" Type="DateTime" Precision="3" />
+    <Property Name="UpdateTime" Type="DateTime" Precision="3" />
+    <Property Name="Deleted" Type="Boolean" />
+    <Property Name="Remark" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserName" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+    <Property Name="RealName" Type="String" MaxLength="16" FixedLength="false" Unicode="true" />
+    <Property Name="Password" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+    <Property Name="CreateTime" Type="DateTime" Precision="3" />
+    <Property Name="Deleted" Type="Boolean" />
+    <Property Name="Remark" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityContainer Name="DFHE_TopicEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Page" EntityType="Self.Page" />
+    <EntitySet Name="Respondent" EntityType="Self.Respondent" />
+    <EntitySet Name="Template" EntityType="Self.Template" />
+    <EntitySet Name="Topic" EntityType="Self.Topic" />
+    <EntitySet Name="User" EntityType="Self.User" />
+  </EntityContainer>
+</Schema>

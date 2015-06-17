@@ -1,0 +1,208 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title> 预览样式 </title>
+    <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
+    <link href="css/ionic.app.css" rel="stylesheet">
+    -->
+    <!-- ionic/angularjs js -->
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+    <!-- cordova script (this will be a 404 during development) -->
+    <!-- // <script src="cordova.js"></script> -->
+
+        <style>
+        .tabs {
+            top: 0px !important;
+        }
+        
+        .has-tabs-top {
+            top: 50px;
+        }
+        </style>
+
+
+</head>
+
+<body ng-app="starter">
+    <!--
+      The nav bar that will be updated as we navigate between views.
+    -->
+    <!--
+      The views will be rendered in the <ion-nav-view> directive below
+      Templates are in the /templates folder (but you could also
+      have templates inline in this html file if you'd like).
+    -->
+    <ion-nav-view></ion-nav-view>
+</body>
+
+</html>
+<script id="templates/tabs.html" type="text/ng-template">
+<ion-tabs class="tabs-striped tabs-top tabs-color-light tabs-background-positive">
+        
+        
+
+<ion-tab title = "标签一" href="#/tabs/tab1">
+                <ion-nav-view name="tabs-tab1"></ion-nav-view>
+            </ion-tab>
+<ion-tab title = "标签二" href="#/tabs/tab2">
+                <ion-nav-view name="tabs-tab2"></ion-nav-view>
+            </ion-tab>
+<ion-tab title = "标签三" href="#/tabs/tab3">
+                <ion-nav-view name="tabs-tab3"></ion-nav-view>
+            </ion-tab>
+
+        </ion-tabs>        
+
+
+                                     
+   
+
+<div class="bar bar-footer bar-positive">
+            <div class="title">
+                <button class="button button-outline button-light" ui-sref="submit" style="margin: 5px">按钮</button>
+            </div>
+        </div>
+    
+    
+</script>
+
+
+<script id="templates/tab1.html" type="text/ng-template">
+            <ion-view view-title="标签一" class = "stable-bg dark">
+                <ion-content>
+                    当你看到这里的时候有没有觉得这个页面很牛X...;
+                </ion-content>
+            </ion-view>
+        </script>
+<script id="templates/tab2.html" type="text/ng-template">
+            <ion-view view-title="标签二" class = "stable-bg dark">
+                <ion-content>
+                    切换过来你也会觉得牛X的...;
+                </ion-content>
+            </ion-view>
+        </script>
+<script id="templates/tab3.html" type="text/ng-template">
+            <ion-view view-title="标签三" class = "stable-bg dark">
+                <ion-content>
+                    总之就是很牛X对吧...;
+                </ion-content>
+            </ion-view>
+        </script>
+
+    
+<script id="templates/submit.html" type="text/ng-template">
+            <ion-view view-title="提交页面" hide-nav-bar="true" class="stable-bg dark">
+                <ion-header-bar align-title="center" class="bar-positive" style="top:0">
+                    <div class="buttons">
+                        <button class="button" ui-sref="tabs.tab1">返回</button>
+                    </div>
+                    <h1 class="title">提交页面</h1>
+                </ion-header-bar>
+                <ion-content>
+                    提交页面
+                </ion-content>
+            </ion-view>
+        </script>
+
+<!-- app.js -->
+<script>
+angular.module('starter', ['ionic', 'starter.controllers'])
+
+.run(function($ionicPlatform) {
+    $ionicPlatform.ready(function() {
+        if (window.cordova && window.cordova.plugins.Keyboard) {
+            cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
+        }
+        if (window.StatusBar) {
+            // org.apache.cordova.statusbar required
+            StatusBar.styleDefault();
+        }
+    });
+})
+
+.config(function($stateProvider, $urlRouterProvider) {
+
+    $stateProvider
+
+    // setup an abstract state for the tabs directive
+        .state('tabs', {
+        url: "/tabs",
+        abstract: true,
+        templateUrl: "templates/tabs.html"
+    })
+
+    // Each tab has its own nav history stack:
+.state('tabs.tab1', {
+            url: '/tab1',
+            views: 
+            {
+                'tabs-tab1': {
+                    templateUrl: 'templates/tab1.html',
+                    controller: 'Tab1Ctrl'
+                }
+            }
+        })
+.state('tabs.tab2', {
+            url: '/tab2',
+            views: 
+            {
+                'tabs-tab2': {
+                    templateUrl: 'templates/tab2.html',
+                    controller: 'Tab2Ctrl'
+                }
+            }
+        })
+.state('tabs.tab3', {
+            url: '/tab3',
+            views: 
+            {
+                'tabs-tab3': {
+                    templateUrl: 'templates/tab3.html',
+                    controller: 'Tab3Ctrl'
+                }
+            }
+        })
+
+    
+
+    .state('submit', {
+        url: '/submit',
+        templateUrl: 'templates/submit.html',
+        controller: 'SubmitCtrl',
+        onEnter: function($rootScope) {
+            $rootScope.$emit("hideFooter", true);
+        }
+    })
+
+    // if none of the above states are matched, use this as the fallback
+    $urlRouterProvider.otherwise('/tabs/tab1');
+
+});
+</script>
+<script>
+angular.module('starter.controllers', [])
+.controller('TabsCtrl', function($scope) {
+
+})
+
+.controller('Tab1Ctrl', function($scope) {
+
+    })
+.controller('Tab2Ctrl', function($scope) {
+
+    })
+.controller('Tab3Ctrl', function($scope) {
+
+    })
+
+.controller('SubmitCtrl', function($scope, $rootScope) {
+    $rootScope.$on('hideFooter', function(event, data) {
+        $scope.hideFooter = data;
+    })
+});
+</script>

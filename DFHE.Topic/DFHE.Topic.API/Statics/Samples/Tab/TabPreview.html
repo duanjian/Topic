@@ -1,0 +1,273 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title> title </title>
+    <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
+    <link href="css/ionic.app.css" rel="stylesheet">
+    -->
+    <!-- ionic/angularjs js -->
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+    <!-- cordova script (this will be a 404 during development) -->
+    <!-- // <script src="cordova.js"></script> -->
+
+        <style>
+        .tabs {
+            top: 0px !important;
+        }
+        
+        .has-tabs-top {
+            top: 50px;
+        }
+        </style>
+
+
+
+        <style>
+            .bar.bar-dark .title {
+                color: #ffc900;
+            }
+
+            .button.button-energized.button-outline {
+                border-color: #ffc900;
+                background: transparent;
+                color: #ffc900;
+            }
+        </style>     
+        <style>
+            .bar.bar-dark {
+                border-color:#ffc900;
+            }
+        </style>   
+    
+
+</head>
+
+<body ng-app="starter">
+    <!--
+      The nav bar that will be updated as we navigate between views.
+    -->
+    <!--
+      The views will be rendered in the <ion-nav-view> directive below
+      Templates are in the /templates folder (but you could also
+      have templates inline in this html file if you'd like).
+    -->
+    <ion-nav-view></ion-nav-view>
+</body>
+
+</html>
+<script id="templates/tabs.html" type="text/ng-template">
+<ion-tabs class="tabs-striped tabs-top tabs-color-energized tabs-background-dark">
+        
+        
+
+<ion-tab title = "1" href="#/tabs/tab1">
+                <ion-nav-view name="tabs-tab1"></ion-nav-view>
+            </ion-tab>
+<ion-tab title = "2" href="#/tabs/tab2">
+                <ion-nav-view name="tabs-tab2"></ion-nav-view>
+            </ion-tab>
+<ion-tab title = "3" href="#/tabs/tab3">
+                <ion-nav-view name="tabs-tab3"></ion-nav-view>
+            </ion-tab>
+<ion-tab title = "4" href="#/tabs/tab4">
+                <ion-nav-view name="tabs-tab4"></ion-nav-view>
+            </ion-tab>
+<ion-tab title = "5" href="#/tabs/tab5">
+                <ion-nav-view name="tabs-tab5"></ion-nav-view>
+            </ion-tab>
+
+        </ion-tabs>        
+
+
+                                     
+   
+
+<div class="bar bar-footer bar-dark">
+            <div class="title">
+                <button class="button button-outline button-energized" ui-sref="submit" style="margin: 5px">按钮</button>
+            </div>
+        </div>
+    
+    
+</script>
+
+
+<script id="templates/tab1.html" type="text/ng-template">
+            <ion-view view-title="1" class = "dark-bg energized">
+                <ion-content>
+                    
+                </ion-content>
+            </ion-view>
+        </script>
+<script id="templates/tab2.html" type="text/ng-template">
+            <ion-view view-title="2" class = "dark-bg energized">
+                <ion-content>
+                    
+                </ion-content>
+            </ion-view>
+        </script>
+<script id="templates/tab3.html" type="text/ng-template">
+            <ion-view view-title="3" class = "dark-bg energized">
+                <ion-content>
+                    
+                </ion-content>
+            </ion-view>
+        </script>
+<script id="templates/tab4.html" type="text/ng-template">
+            <ion-view view-title="4" class = "dark-bg energized">
+                <ion-content>
+                    
+                </ion-content>
+            </ion-view>
+        </script>
+<script id="templates/tab5.html" type="text/ng-template">
+            <ion-view view-title="5" class = "dark-bg energized">
+                <ion-content>
+                    
+                </ion-content>
+            </ion-view>
+        </script>
+
+    
+<script id="templates/submit.html" type="text/ng-template">
+            <ion-view view-title="提交页面" hide-nav-bar="true" class="dark-bg energized">
+                <ion-header-bar align-title="center" class="bar-dark energized-border" style="top:0;border-bottom-width: 1px">
+                    <div class="buttons">
+                        <button class="button button-outline button-energized" ui-sref="tabs.tab1">返回</button>
+                    </div>
+                    <h1 class="title">提交页面</h1>
+                </ion-header-bar>
+                <ion-content>
+                    提交页面
+                </ion-content>
+            </ion-view>
+        </script>
+
+<!-- app.js -->
+<script>
+angular.module('starter', ['ionic', 'starter.controllers'])
+
+.run(function($ionicPlatform) {
+    $ionicPlatform.ready(function() {
+        if (window.cordova && window.cordova.plugins.Keyboard) {
+            cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
+        }
+        if (window.StatusBar) {
+            // org.apache.cordova.statusbar required
+            StatusBar.styleDefault();
+        }
+    });
+})
+
+.config(function($stateProvider, $urlRouterProvider) {
+
+    $stateProvider
+
+    // setup an abstract state for the tabs directive
+        .state('tabs', {
+        url: "/tabs",
+        abstract: true,
+        templateUrl: "templates/tabs.html"
+    })
+
+    // Each tab has its own nav history stack:
+.state('tabs.tab1', {
+            url: '/tab1',
+            views: 
+            {
+                'tabs-tab1': {
+                    templateUrl: 'templates/tab1.html',
+                    controller: 'Tab1Ctrl'
+                }
+            }
+        })
+.state('tabs.tab2', {
+            url: '/tab2',
+            views: 
+            {
+                'tabs-tab2': {
+                    templateUrl: 'templates/tab2.html',
+                    controller: 'Tab2Ctrl'
+                }
+            }
+        })
+.state('tabs.tab3', {
+            url: '/tab3',
+            views: 
+            {
+                'tabs-tab3': {
+                    templateUrl: 'templates/tab3.html',
+                    controller: 'Tab3Ctrl'
+                }
+            }
+        })
+.state('tabs.tab4', {
+            url: '/tab4',
+            views: 
+            {
+                'tabs-tab4': {
+                    templateUrl: 'templates/tab4.html',
+                    controller: 'Tab4Ctrl'
+                }
+            }
+        })
+.state('tabs.tab5', {
+            url: '/tab5',
+            views: 
+            {
+                'tabs-tab5': {
+                    templateUrl: 'templates/tab5.html',
+                    controller: 'Tab5Ctrl'
+                }
+            }
+        })
+
+    
+
+    .state('submit', {
+        url: '/submit',
+        templateUrl: 'templates/submit.html',
+        controller: 'SubmitCtrl',
+        onEnter: function($rootScope) {
+            $rootScope.$emit("hideFooter", true);
+        }
+    })
+
+    // if none of the above states are matched, use this as the fallback
+    $urlRouterProvider.otherwise('/tabs/tab1');
+
+});
+</script>
+<script>
+angular.module('starter.controllers', [])
+.controller('TabsCtrl', function($scope) {
+
+})
+
+.controller('Tab1Ctrl', function($scope) {
+
+    })
+.controller('Tab2Ctrl', function($scope) {
+
+    })
+.controller('Tab3Ctrl', function($scope) {
+
+    })
+.controller('Tab4Ctrl', function($scope) {
+
+    })
+.controller('Tab5Ctrl', function($scope) {
+
+    })
+
+.controller('SubmitCtrl', function($scope, $rootScope) {
+    $rootScope.$on('hideFooter', function(event, data) {
+        $scope.hideFooter = data;
+    })
+});
+</script>

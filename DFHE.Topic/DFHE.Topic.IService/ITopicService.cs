@@ -17,10 +17,17 @@ namespace DFHE.Topic.IService
         Task<ResultVO> Insert(Topic.Model.Topic topic);
 
         /// <summary>
-        /// 生成静态页
+        /// 更新专题
         /// </summary>
         /// <param name="topic"></param>
         /// <returns></returns>
-        //Task GenerateStaticPage(Object survey, string tmplName, string staticPageName);
+         Task<ResultVO> Update(Model.Topic topic);
+         
+        /// <summary>
+        /// 生成示例
+        /// </summary>
+        /// <param name="template"></param>
+        /// <returns></returns>
+         Task<ResultVO> GenerateSample(TopicVO template);
     }
 }

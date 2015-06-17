@@ -12,7 +12,7 @@
 
         #signin-demo img {
             cursor: pointer;
-            height: 60px;
+            height: 130px;
         }
 
             #signin-demo img:hover {
@@ -27,9 +27,24 @@
         }
 </style>
 
+<style>
+    .selectedTmplImg {
+        outline: -webkit-focus-ring-color auto 5px;
+        opacity: .5;
+    }
+</style>
+
+<style>
+    .col-sm-2 {
+        width: 10.666667%;
+    }
+
+    .col-sm-10 {
+        width: 89.333333%;
+    }
+</style>
 
 <link href="/assets/stylesheets/preview.css" rel="stylesheet" />
-
 
 <div class="row">
     <div class="col-md-12">
@@ -38,28 +53,32 @@
                 <ul class="wizard-steps">
                     <li data-target="#wizard-example-step1" ng-class="{active:stepDict.isStep1,completed:!stepDict.isStep1}">
                         <span class="wizard-step-number">1</span>
-                        <span class="wizard-step-caption">Step 1
+                        <span class="wizard-step-caption">
+                            Step 1
                             <span class="wizard-step-description">Basic information configuration</span>
                         </span>
                     </li>
                     <li data-target="#wizard-example-step2" ng-class="{active:stepDict.isStep2,completed:!stepDict.isStep2}">
                         <!-- ! Remove space between elements by dropping close angle -->
                         <span class="wizard-step-number">2</span>
-                        <span class="wizard-step-caption">Step 2
+                        <span class="wizard-step-caption">
+                            Step 2
                             <span class="wizard-step-description">Content management</span>
                         </span>
                     </li>
                     <li data-target="#wizard-example-step3" ng-class="{active:stepDict.isStep3,completed:!stepDict.isStep3}">
                         <!-- ! Remove space between elements by dropping close angle -->
                         <span class="wizard-step-number">3</span>
-                        <span class="wizard-step-caption">Step 3
+                        <span class="wizard-step-caption">
+                            Step 3
                             <span class="wizard-step-description">Page of submit content configuration </span>
                         </span>
                     </li>
                     <li data-target="#wizard-example-step4" ng-class="{active:stepDict.isStep4,completed:!stepDict.isStep4}">
                         <!-- ! Remove space between elements by dropping close angle -->
                         <span class="wizard-step-number">4</span>
-                        <span class="wizard-step-caption">Finish
+                        <span class="wizard-step-caption">
+                            Finish
                         </span>
                     </li>
                 </ul>
@@ -73,26 +92,29 @@
                             <div class="form-group">
                                 <label for="inputTopicName" class="col-sm-2 control-label">专题名称</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="inputTopicName" placeholder="Topic Title">
+                                    <input type="text" class="form-control" id="inputTopicName" placeholder="Topic Title" ng-model="Topic.Title">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-sm-2 control-label">模版类型</label>
                                 <div class="col-sm-10">
-                                    <div class="radio">
+                                    <div class="radio" ng-repeat="type in tplTypeDict">
                                         <label>
-                                            <input type="radio" name="tmplsRadios" ng-model="Topic.TplType" value="1" checked>
-                                            标签页样式
+                                            <input type="radio" name="tmplsRadios" ng-model="Topic.TplType" value="{{type.key}}" checked>
+                                            {{type.value}}
                                         </label>
                                     </div>
-                                    <div class="radio">
+                                    <!--<div class="radio">
                                         <label>
                                             <input type="radio" name="tmplsRadios" ng-model="Topic.TplType" value="2">
                                             切换页样式
                                         </label>
-                                    </div>
+                                    </div>-->
                                 </div>
                             </div>
+
+
+
                             <!--<div class="form-group">
                                 <label class="col-sm-2 control-label">提交方式</label>
                                 <div class="col-sm-10">
@@ -131,15 +153,8 @@
                     <div class="row" ng-show="Topic.TplType == 1">
                         <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
                             <div class="device-preview">
-                                <!--<div id="example-header" class="ionic-body active-preview">
-                       // http://localhost:9055/html/blank.html
-                </div>-->
-                                <iframe id="prevFrame" sandbox="allow-scripts allow-pointer-lock allow-same-origin allow-popups allow-forms" allowtransparency="true" src="http://192.168.1.109:8001/#/tab/dash" frameborder="0" class="ionic-body active-preview"></iframe>
+                                <iframe id="tabTopicPrevFrame" sandbox="allow-scripts allow-pointer-lock allow-same-origin allow-popups allow-forms" allowtransparency="true" src="http://localhost:2381/Statics/Samples/Tab/TabTemplateSample.html" frameborder="0" class="ionic-body active-preview"></iframe>
                             </div>
-                            <!--http://192.168.1.109:8001/#/tab/dash
-                http://192.168.1.109:8002/demos/03-vertical.html
-            http://localhost:9055/html/signin.html-->
-                            <!--<button type="button" ng-click="test()">show</button>-->
                         </div>
 
                         <div class="col-xs-12 col-sm-6 col-md-8 col-lg-8">
@@ -147,17 +162,11 @@
                                 <div class="form-group">
                                     <div id="signin-demo" class="col-xs-12 col-sm-12 col-md-12 hidden-sm">
                                         <div>模版选择</div>
-                                        <img src="assets/demo/signin-bg-1.jpg">
-                                        <img src="assets/demo/signin-bg-2.jpg">
-                                        <img src="assets/demo/signin-bg-3.jpg">
-                                        <img src="assets/demo/signin-bg-4.jpg">
-                                        <img src="assets/demo/signin-bg-5.jpg">
-                                        <img src="assets/demo/signin-bg-6.jpg">
-                                        <img src="assets/demo/signin-bg-7.jpg">
-                                        <img src="assets/demo/signin-bg-8.jpg">
-                                        <img src="assets/demo/signin-bg-9.jpg">
+                                        <img src="{{tmpl.ImageURI}}" data-tmplid="{{tmpl.TemplateId}}" ng-repeat="tmpl in tmplImageList" alt="{{tmpl.TemplateTitle}}" on-finish-render-filters>
+
                                     </div>
                                 </div>
+
                                 <div class="form-group">
                                     <label for="inputTopicName" class="col-sm-2 control-label">标签个数</label>
                                     <div class="col-sm-10">
@@ -171,7 +180,7 @@
                                     <!-- / .panel-heading -->
                                     <div class="panel-body">
 
-                                        <div class="follower" ng-repeat="page in Pages">
+                                        <!--<div class="follower" ng-repeat="page in Pages">
                                             <div class="form-group">
 
                                                 <label for="inputTopicName" class="col-sm-2 control-label">标签标题</label>
@@ -183,13 +192,39 @@
                                             <div class="form-group">
                                                 <label for="inputTopicName" class="col-sm-2 control-label">标签内容</label>
                                                 <div class="col-sm-10">
-                                                    <textarea class="form-control" rows="3" placeholder="标签内容" ng-model="page.Content"></textarea>
+                                                    <summernote lang="zh-CN" height="200" ng-model="page.Content"></summernote>
                                                 </div>
                                             </div>
+                                        </div>-->
+
+
+                                        <div class="follower">
+                                            <div bs-active-pane="tabs.activeTab" bs-tabs class="nav nav-tabs nav-justified">
+                                                <div ng-repeat="tab in tabs" title="{{ tab.PageTitle }}" on-finish-render-filters bs-pane>
+                                                    <div class="form-group">
+
+                                                        <label for="inputTopicName" class="col-sm-2 control-label">标签标题</label>
+                                                        <div class="col-sm-10">
+                                                            <input type="text" class="form-control" id="inputTopicName" placeholder="标签标题" required ng-model="tab.PageTitle">
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <label for="inputTopicName" class="col-sm-2 control-label">标签内容</label>
+                                                        <div class="col-sm-10">
+                                                            <!--<textarea class="form-control" rows="3" placeholder="标签内容" ng-model="page.Content"></textarea>-->
+                                                            <summernote lang="zh-CN" height="200" ng-model="tab.PageContent"></summernote>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
                                         </div>
 
-                                    </div>
-                                </div>
+                                        <div class="follower">
+                                            <button type="button" id="loading-example-btn" data-loading-text="Loading..." class="btn btn-primary" ng-click="preview($event)">预览</button>
+                                        </div>
 
                             </form>
                         </div>
@@ -198,15 +233,9 @@
                     <div class="row" ng-show="Topic.TplType == 2">
                         <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
                             <div class="device-preview">
-                                <!--<div id="example-header" class="ionic-body active-preview">
-                       // http://localhost:9055/html/blank.html
-                </div>-->
-                                <iframe id="prevFrame" sandbox="allow-scripts allow-pointer-lock allow-same-origin allow-popups allow-forms" allowtransparency="true" src="http://192.168.1.109:8001/#/tab/dash" frameborder="0" class="ionic-body active-preview"></iframe>
+
+                                <iframe id="prevFrame" sandbox="allow-scripts allow-pointer-lock allow-same-origin allow-popups allow-forms" allowtransparency="true" src="http://localhost:2381/Statics/Samples/TabSample.html" frameborder="0" class="ionic-body active-preview"></iframe>
                             </div>
-                            <!--http://192.168.1.109:8001/#/tab/dash
-                http://192.168.1.109:8002/demos/03-vertical.html
-            http://localhost:9055/html/signin.html-->
-                            <!--<button type="button" ng-click="test()">show</button>-->
                         </div>
 
                         <div class="col-xs-12 col-sm-6 col-md-8 col-lg-8">
@@ -218,6 +247,8 @@
                                         <img src="assets/demo/signin-bg-2.jpg">
                                     </div>
                                 </div>
+
+
                                 <div class="form-group">
                                     <label for="inputTopicName" class="col-sm-2 control-label">页面数量</label>
                                     <div class="col-sm-10">
@@ -262,15 +293,8 @@
                     <div class="row">
                         <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
                             <div class="device-preview">
-                                <!--<div id="example-header" class="ionic-body active-preview">
-                                        // http://localhost:9055/html/blank.html
-                                    </div>-->
-                                <iframe id="prevFrame" sandbox="allow-scripts allow-pointer-lock allow-same-origin allow-popups allow-forms" allowtransparency="true" src="http://192.168.1.109:8001/#/tab/dash" frameborder="0" class="ionic-body active-preview"></iframe>
+                                <iframe id="prevFrame" sandbox="allow-scripts allow-pointer-lock allow-same-origin allow-popups allow-forms" allowtransparency="true" src="http://localhost:2381/Statics/Samples/TabSample.html" frameborder="0" class="ionic-body active-preview"></iframe>
                             </div>
-                            <!--http://192.168.1.109:8001/#/tab/dash
-                                http://192.168.1.109:8002/demos/03-vertical.html
-                                http://localhost:9055/html/signin.html-->
-                            <!--<button type="button" ng-click="test()">show</button>-->
                         </div>
 
                         <div class="col-xs-12 col-sm-6 col-md-8 col-lg-8">
@@ -332,38 +356,38 @@
                         </div>
                     </div>
                 </div>
-                
-            <div class="wizard-pane" id="wizard-example-step4" style="display: none;">
-                <div class="row">
-                    <div class="col-sm-12">
-                        <div class="panel colourable">
-                            <div class="panel-heading">
-                                <span class="panel-title">Congratulations!</span>
-                                <div class="panel-heading-controls">
-                                    <!--<span class="label label-tag label-warning">Tag</span>
-                                    <span class="label label-danger">Label</span>
-                                    <span class="badge badge-info">Badge</span>-->
+
+                <div class="wizard-pane" id="wizard-example-step4" style="display: none;">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="panel colourable">
+                                <div class="panel-heading">
+                                    <span class="panel-title">Congratulations!</span>
+                                    <div class="panel-heading-controls">
+                                        <!--<span class="label label-tag label-warning">Tag</span>
+                                        <span class="label label-danger">Label</span>
+                                        <span class="badge badge-info">Badge</span>-->
+                                    </div>
+                                </div>
+                                <!-- / .panel-heading -->
+                                <div class="alert alert-page alert-success alert-dark">
+                                    <button type="button" class="close" data-dismiss="alert">×</button>
+                                    <strong>Well done!</strong> 新的专题页面已经生成，你可以通过以下方式查看！
+                                </div>
+                                <!-- / .alert -->
+                                <div class="panel-body">
+                                    <div class="note note-info">浏览器直接查看Web版 <a href="http://digitalbush.com/projects/masked-input-plugin/" target="_blank">http://digitalbush.com/projects/masked-input-plugin/</a></div>
+
+                                    <div class="note note-info">通过二维码查看 <a href="http://digitalbush.com/projects/masked-input-plugin/" target="_blank">http://digitalbush.com/projects/masked-input-plugin/</a></div>
                                 </div>
                             </div>
-                            <!-- / .panel-heading -->
-                            <div class="alert alert-page alert-success alert-dark">
-                                <button type="button" class="close" data-dismiss="alert">×</button>
-                                <strong>Well done!</strong> 新的专题页面已经生成，你可以通过以下方式查看！
-                            </div>
-                            <!-- / .alert -->
-                            <div class="panel-body">
-                                <div class="note note-info">浏览器直接查看Web版 <a href="http://digitalbush.com/projects/masked-input-plugin/" target="_blank">http://digitalbush.com/projects/masked-input-plugin/</a></div>
 
-                                <div class="note note-info">通过二维码查看 <a href="http://digitalbush.com/projects/masked-input-plugin/" target="_blank">http://digitalbush.com/projects/masked-input-plugin/</a></div>
-                            </div>
+                            <!--<button class="btn wizard-prev-step-btn" ng-click="goStep(3)">上一步</button>-->
+                            <button class="btn btn-primary wizard-next-step-btn">完成</button>
                         </div>
-
-                        <!--<button class="btn wizard-prev-step-btn" ng-click="goStep(3)">上一步</button>-->
-                        <button class="btn btn-primary wizard-next-step-btn">完成</button>
+                        <!-- / .wizard-pane -->
                     </div>
-                    <!-- / .wizard-pane -->
                 </div>
-            </div>
 
             </div>
             <!-- / .wizard-pane -->

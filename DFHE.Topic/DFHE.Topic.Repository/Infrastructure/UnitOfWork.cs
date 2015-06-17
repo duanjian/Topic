@@ -4,10 +4,11 @@ using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DFHE.Topic.IRepository;
 
 namespace DFHE.Topic.Repository
 {
-    public class UnitOfWork
+    public class UnitOfWork:IUnitOfWork
     {
         /// <summary>
         /// The DbContext

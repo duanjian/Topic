@@ -5,6 +5,7 @@
          width: 330px;
          height: 810px;
          background: url("/assets/images/phone-case.jpg") no-repeat;
+         margin-top:60px;
      }
      
      .device-preview > div {
@@ -13,7 +14,7 @@
          left: 18px;
          z-index: 0;
          width: 297px;
-         height: 526px;
+         height: 529px;
          border: 4px solid #22272d;
          background-color: white;
          opacity: 0;
@@ -62,7 +63,7 @@
          left: 15px;
          z-index: 0;
          width: 297px;
-         height: 526px;
+         height: 529px;
          border: 4px solid #22272d;
          background-color: white;
          opacity: 0;
